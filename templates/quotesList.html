@@ -1,0 +1,28 @@
+{%extends 'main/main.html'%}
+{%block title%} Quotes List | melpCode {%endblock%}
+
+{%block quotesList%}
+
+<div class="container p-4">
+    <h4 class="display-4">List of Quotes:</h4>
+    <hr class="my-2">
+    <div>
+        <div class="row">
+            {% if quotes%}
+                {% for quote in quotes%}
+                    <div class="col-md-4 p-2">
+                        <div class="card card-body shadow">
+                            <h1 class="text-center">{{quote.val().quote}}</h1>
+                            <p class="font-italic text-sm ml-auto"> - {{quote.val().author}}</p>
+                            <a href="/deletequote/{{quote.key()}}" class="btn btn-danger shadow btn-block btn-sm">Delete</a>
+                        </div>
+                    </div>
+                {%endfor%}
+            {%endif%}
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}
